@@ -1,4 +1,5 @@
 import { loadProductsActions } from '../actions/loadProducts';
+import { addProductToCart, addProductToWishList, productsActions } from "../actions/handleProducts";
 
 interface User {
     firstName: string;
@@ -32,6 +33,7 @@ const InitialData: InitialDataType = {
 
 export default function reducer(state = InitialData, action: { type: string, payload: any }) {
     switch (action.type) {
+        //actions to load product from the API
         case loadProductsActions.loadProducts:
             return {
                 ...state,
@@ -50,6 +52,20 @@ export default function reducer(state = InitialData, action: { type: string, pay
                 ...state,
                 isLoading: false,
                 hasError: true
+            }
+
+        //handle actions to add product to the cart
+        case productsActions.addToCart: 
+            return {
+                ...state,
+                cart: [...state.cart, action.payload]
+            }
+
+        //handle actions to add products to wishlist
+        case productsActions.addToWishList: 
+            return {
+                ...state,
+                wishList: [...state.wishList, action.payload]
             }
         default:
             return state

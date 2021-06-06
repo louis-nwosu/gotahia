@@ -1,41 +1,33 @@
-import React from 'react';
-//import materialUI components
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import {makeStyles, Theme, createStyles} from '@material-ui/core';
+import React from "react";
 //import local components
-import PrimarySearchAppBar from './navBar';
+import AppBar from "./navBar";
+//import local components
+import ItemsDisplay from "./itemsDisplay";
 //import the actions
-import ActionObj from '../../store/actions';
+import ActionObj from "../../store/actions";
 //import react-redux functions
-import {useSelector, useDispatch} from 'react-redux';
-
-//create style hook
-const useStyles = makeStyles((theme: Theme) => createStyles({}));
-
+import { useDispatch } from "react-redux";
+ 
 function Home() {
-  const classes = useStyles();
   const dispatch = useDispatch();
+  //state to toggle what component is showing
+  const [cur, setCur] = React.useState<string | EventTarget>(
+    "all products"
+  );
+  const setTab = (tab: string | EventTarget) =>{
+    setCur(tab);
+    console.log(tab)
+  };
   //load the products
   React.useEffect(() => {
     dispatch(ActionObj.LoadProductsMain());
+    console.log("worke");
   }, [dispatch]);
 
   return (
     <React.Fragment>
-      <Grid container>
-        <Grid item md={12} xs={12}>
-          <PrimarySearchAppBar />
-        </Grid>
-        <Grid item md={12} xs={12}>
-          <Container maxWidth="lg">
-            <Grid container>
-              <Grid item md={8} xs={12}></Grid>
-              <Grid item md={4} xs={12}></Grid>
-            </Grid>
-          </Container>
-        </Grid>
-      </Grid>
+      <AppBar setTabFunc={setTab} />
+      <ItemsDisplay currentTab={cur} />
     </React.Fragment>
   );
 }
