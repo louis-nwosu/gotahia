@@ -1,7 +1,6 @@
 import React from "react";
 //import local components
 import AppBar from "./navBar";
-//import local components
 import ItemsDisplay from "./itemsDisplay";
 //import the actions
 import ActionObj from "../../store/actions";
@@ -16,7 +15,6 @@ function Home() {
   );
   const setTab = (tab: string | EventTarget) =>{
     setCur(tab);
-    console.log(tab)
   };
   //load the products
   React.useEffect(() => {

@@ -4,10 +4,14 @@ import { Row, Col, Card } from "antd";
 import "antd/dist/antd.css";
 //import local components
 import ProductCard from "./productCard";
+import Footer from "./footer";
 //import the dispatch hook
 import { useSelector, useDispatch } from "react-redux";
 //import function to ad products to cart
-import { addProductToCart, addProductToWishList } from "../../store/actions/handleProducts";
+import {
+  addProductToCart,
+  addProductToWishList,
+} from "../../store/actions/handleProducts";
 
 //define the props interface
 interface Props {
@@ -18,6 +22,7 @@ interface Props {
 const itemsDisplayStyles: any = {
   container: {
     padding: "20px",
+    marginTop: '20px'
   },
   cardMarg: {
     marginBottom: "20px",
@@ -48,8 +53,8 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
   };
   //function to ass product to cart
   const addProdToCartFunc = (payload: any) => {
-    dispatch(addProductToWishList(payload))
-  }
+    dispatch(addProductToWishList(payload));
+  };
   const renderTabs = () => {
     if (currentTab == "all products") {
       return (
@@ -193,10 +198,14 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
       );
     }
   };
+
   return (
-    <div style={itemsDisplayStyles.container}>
-      <Row>{renderTabs()}</Row>
-    </div>
+    <React.Fragment>
+      <div style={itemsDisplayStyles.container}>
+        <Row>{renderTabs()}</Row>
+      </div>
+     {products.length !== 0 &&  <Footer />}
+    </React.Fragment>
   );
 };
 
