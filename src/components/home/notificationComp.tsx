@@ -1,18 +1,16 @@
-// import { Button, notification } from 'antd';
+// import { Button, notification, Divider, Space } from "antd";
 
-// const openNotification = () => {
-//   notification.open({
-//     message: 'Notification Title',
-//     description:
-//       'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-//     className: 'custom-class',
-//     style: {
-//       width: 600,
-//     },
-//   });
+// const Notification = () => {
+//   return (
+//     <div>
+//       <Space>
+//         <Button type="primary" onClick={}>
+         
+//         </Button>
+//       </Space>
+//     </div>
+//   );
 // };
 
-//   <Button type="primary" onClick={openNotification}>
-//     Open the notification box
-//   </Button>,
+// export default Notification;
 export {}

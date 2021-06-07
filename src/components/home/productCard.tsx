@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "antd";
+import { notification, Space } from "antd";
 
 interface Params {
   img: string;
@@ -31,6 +32,13 @@ const ProductCard: React.FC<ProductProps> = ({
   handleAddToCart,
   handleAddToWishList,
 }) => {
+  const OpenNotification = (placement: any) => {
+    notification.info({
+      message: ``,
+      description: "Added succesfully!",
+      placement,
+    });
+  };
   return (
     <React.Fragment>
       <Card
@@ -45,6 +53,7 @@ const ProductCard: React.FC<ProductProps> = ({
           <p
             onClick={() => {
               handleAddToCart({ img: image, description, price, title });
+              OpenNotification("bottomRight");
             }}
           >
             add to wishlist
@@ -52,8 +61,9 @@ const ProductCard: React.FC<ProductProps> = ({
           <p
             onClick={() => {
               handleAddToWishList({ img: image, description, price, title });
+              OpenNotification("bottomRight");
             }}
-            style={{color: '#b30c5d'}}
+            style={{ color: "#b30c5d" }}
           >
             add to cart
           </p>,
