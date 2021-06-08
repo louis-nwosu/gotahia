@@ -2,13 +2,6 @@ import React from "react";
 import { Card } from "antd";
 import { notification } from "antd";
 
-interface Params {
-  img: string;
-  description: string;
-  title: string;
-  price: number;
-}
-
 interface ProductProps {
   title: string;
   category: string;
@@ -16,24 +9,31 @@ interface ProductProps {
   image: string;
   id: number;
   price: number;
-  handleAddToCart: (props: Params) => void;
-  handleAddToWishList: (props: Params) => void;
+  fn: (id: number) => void;
 }
 
 const { Meta } = Card;
 
-const ProductCard: React.FC<ProductProps> = ({
+const CartCard: React.FC<ProductProps> = ({
   title,
+  category,
   description,
   image,
   price,
-  handleAddToCart,
-  handleAddToWishList,
+  id,
+  fn,
 }) => {
   const OpenNotification = (placement: any) => {
     notification.info({
       message: ``,
-      description: "Added succesfully!",
+      description: "+1",
+      placement,
+    });
+  };
+  const OpenNotification2 = (placement: any) => {
+    notification.info({
+      message: ``,
+      description: "deleted from cart",
       placement,
     });
   };
@@ -42,28 +42,28 @@ const ProductCard: React.FC<ProductProps> = ({
       <Card
         cover={
           <img
-            alt="product to display"
+            alt="product"
             src={`${image}`}
-            style={{ width: "100%", height: "180px" }}
+            style={{ width: "80%", height: "150px" }}
           />
         }
         actions={[
           <p
             onClick={() => {
-              handleAddToCart({ img: image, description, price, title });
+              //   handleAddToCart({ img: image, description, price, title });
               OpenNotification("bottomRight");
             }}
           >
-            add to wishlist
+            +1
           </p>,
           <p
             onClick={() => {
-              handleAddToWishList({ img: image, description, price, title });
-              OpenNotification("bottomRight");
+              fn(id);
+              OpenNotification2("bottomRight");
             }}
             style={{ color: "#b30c5d" }}
           >
-            add to cart
+            delete from cart
           </p>,
         ]}
       >
@@ -73,4 +73,4 @@ const ProductCard: React.FC<ProductProps> = ({
   );
 };
 
-export default ProductCard;
+export default CartCard;

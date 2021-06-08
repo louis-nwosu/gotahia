@@ -1,6 +1,5 @@
 import React from "react";
 import { Col, Row } from "antd";
-import { ContactsTwoTone } from "@ant-design/icons";
 
 type CategoriesType = string[] | null;
 interface Props {

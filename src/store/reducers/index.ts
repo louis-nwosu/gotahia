@@ -1,5 +1,5 @@
 import { loadProductsActions } from '../actions/loadProducts';
-import { addProductToCart, addProductToWishList, productsActions } from "../actions/handleProducts";
+import { productsActions } from "../actions/handleProducts";
 
 interface User {
     firstName: string;
@@ -67,6 +67,15 @@ export default function reducer(state = InitialData, action: { type: string, pay
                 ...state,
                 wishList: [...state.wishList, action.payload]
             }
+
+        //handle actions to delete product from cart
+        case productsActions.deleteProductFromCart: 
+        return {
+            ...state,
+            cart: state.cart.filter(cur => cur !== action.payload)
+        }
+
+        //default case
         default:
             return state
     }

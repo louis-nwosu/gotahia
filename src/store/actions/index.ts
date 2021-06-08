@@ -1,5 +1,7 @@
 import { LoadProductsMain } from './loadProducts';
 
-export default {
+const Actions = {
     LoadProductsMain
 }
+
+export default Actions;

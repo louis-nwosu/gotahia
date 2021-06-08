@@ -1,6 +1,6 @@
 import React from "react";
 //import ant design components
-import { Row, Col, Card } from "antd";
+import { Row, Col } from "antd";
 import "antd/dist/antd.css";
 //import local components
 import ProductCard from "./productCard";
@@ -36,27 +36,27 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
   const products: any[] = useSelector((state: any) => state.products);
   //filter the products array to get required products
   const electronics: any[] = products.filter(
-    (product) => product.category == "electronics"
+    (product) => product.category === "electronics"
   );
   const mensClothing: any[] = products.filter(
-    (product) => product.category == "men's clothing"
+    (product) => product.category === "men's clothing"
   );
   const jewelery: any[] = products.filter(
-    (product) => product.category == "jewelery"
+    (product) => product.category === "jewelery"
   );
   const womenClothes: any[] = products.filter(
-    (product) => product.category == "women's clothing"
+    (product) => product.category === "women's clothing"
   );
   //function to add product to wishlist.
   const addProductToWishListFunc = (payload: any) => {
     dispatch(addProductToCart(payload));
-  };
+  }; 
   //function to ass product to cart
   const addProdToCartFunc = (payload: any) => {
     dispatch(addProductToWishList(payload));
-  };
+  }; 
   const renderTabs = () => {
-    if (currentTab == "all products") {
+    if (currentTab === "all products") {
       return (
         <Col
           md={20}
@@ -84,7 +84,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           </Row>
         </Col>
       );
-    } else if (currentTab == "women's clothing") {
+    } else if (currentTab === "women's clothing") {
       return (
         <Col
           md={20}
@@ -112,7 +112,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           </Row>
         </Col>
       );
-    } else if (currentTab == "men's clothing") {
+    } else if (currentTab === "men's clothing") {
       return (
         <Col
           md={20}
@@ -140,7 +140,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           </Row>
         </Col>
       );
-    } else if (currentTab == "electronics") {
+    } else if (currentTab === "electronics") {
       return (
         <Col
           md={20}
@@ -168,7 +168,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           </Row>
         </Col>
       );
-    } else if (currentTab == "jewelery") {
+    } else if (currentTab === "jewelery") {
       return (
         <Col
           md={20}
