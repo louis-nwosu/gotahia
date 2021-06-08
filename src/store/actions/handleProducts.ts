@@ -29,7 +29,8 @@ interface AddProductToWishList {
     img: string;
     description: string;
     title: string;
-    price: number
+    price: number,
+    id: number
 }
 
 export const addProductToWishList = (payload: AddProductToWishList) => ({

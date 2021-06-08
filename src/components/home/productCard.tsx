@@ -7,6 +7,7 @@ interface Params {
   description: string;
   title: string;
   price: number;
+  id: number
 }
 
 interface ProductProps {
@@ -27,6 +28,7 @@ const ProductCard: React.FC<ProductProps> = ({
   description,
   image,
   price,
+  id,
   handleAddToCart,
   handleAddToWishList,
 }) => {
@@ -50,7 +52,7 @@ const ProductCard: React.FC<ProductProps> = ({
         actions={[
           <p
             onClick={() => {
-              handleAddToCart({ img: image, description, price, title });
+              handleAddToCart({ img: image, description, price, title, id });
               OpenNotification("bottomRight");
             }}
           >
@@ -58,7 +60,7 @@ const ProductCard: React.FC<ProductProps> = ({
           </p>,
           <p
             onClick={() => {
-              handleAddToWishList({ img: image, description, price, title });
+              handleAddToWishList({ img: image, description, price, title, id });
               OpenNotification("bottomRight");
             }}
             style={{ color: "#b30c5d" }}

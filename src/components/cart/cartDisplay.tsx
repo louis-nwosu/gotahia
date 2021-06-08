@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Row } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import CartCard from "./cartCard";
-// import { deleteProductFromCart } from "../../store/actions/handleProducts";
+import { deleteProductFromCart } from "../../store/actions/handleProducts";
 
 const styles = {
   container: {
@@ -13,9 +13,9 @@ const styles = {
 const DisplayCartItems: React.FC<{}> = () => {
   const cartArr = useSelector((state: any) => state.cart);
   console.log(cartArr);
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const deleteProductFromCartFunc = (id: number) => {
-    dispatch();
+    dispatch(deleteProductFromCart(id));
   };
   return (
     <React.Fragment>
