@@ -1,12 +1,13 @@
 import React from "react";
 import { Col, Row } from "antd";
+import "./index.css";
 
 type CategoriesType = string[] | null;
 interface Props {
   setTabFunc?: (tab: string | EventTarget) => void;
 }
 
-const TabNavs: React.FC<Props> = ({setTabFunc}) => {
+const TabNavs: React.FC<Props> = ({ setTabFunc }) => {
   let [categories, setCategories] = React.useState<CategoriesType>(null);
   React.useEffect(() => {
     const loadCat = async () => {
@@ -30,9 +31,15 @@ const TabNavs: React.FC<Props> = ({setTabFunc}) => {
           return (
             <Col
               md={3}
+              xs={4}
               style={{ color: "#fff", fontWeight: "bold", cursor: "pointer" }}
             >
-              <p onClick={(e) => setTabFunc && setTabFunc(cat)} style={{textAlign: 'center'}}>{cat}</p>
+              <p
+                onClick={(e) => setTabFunc && setTabFunc(cat)}
+                style={{ textAlign: "center" }}
+              >
+                {cat}
+              </p>
             </Col>
           );
         })}
@@ -41,18 +48,7 @@ const TabNavs: React.FC<Props> = ({setTabFunc}) => {
 
   return (
     <React.Fragment>
-      <Row
-        style={{
-          background: "lightgrey",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          color: "#fff",
-          marginTop: "4.5%",
-        }}
-      >
-        {renderTabs()}
-      </Row>
+      <Row className='tabNavNavigation'>{renderTabs()}</Row>
     </React.Fragment>
   );
 };

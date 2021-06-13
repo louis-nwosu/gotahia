@@ -67,3 +67,19 @@
 .itemsDisplayCardMarg {
   margin-bottom: 20px;
 }
+
+
+/**---Tab navigation---**/
+.tabNavNavigation {
+    background: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin-top: 5.5%;
+}
+/* @media (max-width: 30em) {
+    .tabNavNavigation {
+      margin-top: 90%;
+    }
+  } */

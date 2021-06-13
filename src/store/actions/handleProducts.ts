@@ -15,7 +15,8 @@ interface AddToCartPayload {
     img: string;
     description: string;
     title: string;
-    price: number
+    price: number;
+    id: number;
 }
 
 export const addProductToCart = (payload: AddToCartPayload ) => ({
@@ -35,7 +36,7 @@ interface AddProductToWishList {
 export const addProductToWishList = (payload: AddProductToWishList) => ({
     type: productsActions.addToWishList,
     payload
-});
+});  
 
 //actions to delete a product from the wishlist
 export const deleteProductFromCart = (payload: number) => ({

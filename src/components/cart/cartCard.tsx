@@ -4,8 +4,8 @@ import { notification } from "antd";
 
 interface ProductProps {
   title: string;
-  category: string;
-  description: string;
+  category?: string;
+  description?: string;
   image: string;
   id: number;
   price: number;
@@ -16,8 +16,6 @@ const { Meta } = Card;
 
 const CartCard: React.FC<ProductProps> = ({
   title,
-  category,
-  description,
   image,
   price,
   id,

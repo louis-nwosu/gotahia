@@ -5,7 +5,7 @@ import "antd/dist/antd.css";
 //import local components
 import ProductCard from "./productCard";
 import Footer from "./footer";
-import './index.css';
+import "./index.css";
 //import the dispatch hook
 import { useSelector, useDispatch } from "react-redux";
 //import function to add products to cart
@@ -23,7 +23,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
   //define the dispatch hook
   const dispatch = useDispatch();
   //get the products array from the store
-  const products: any[] = useSelector((state: any) => state.products); 
+  const products: any[] = useSelector((state: any) => state.products);
   //filter the products array to get required products
   const electronics: any[] = products.filter(
     (product) => product.category === "electronics"
@@ -40,11 +40,11 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
   //function to add product to wishlist.
   const addProductToWishListFunc = (payload: any) => {
     dispatch(addProductToCart(payload));
-  }; 
+  };
   //function to ass product to cart
   const addProdToCartFunc = (payload: any) => {
     dispatch(addProductToWishList(payload));
-  }; 
+  };
   const renderTabs = () => {
     if (currentTab === "all products") {
       return (
@@ -57,7 +57,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           <Row gutter={15}>
             {products.map((product: any) => {
               return (
-                <Col md={6} xs={12} sm={6} className='itemsDisplayCardMarg'>
+                <Col md={6} xs={12} sm={6} className="itemsDisplayCardMarg">
                   <ProductCard
                     description={product.description}
                     image={product.image}
@@ -85,7 +85,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           <Row gutter={15}>
             {womenClothes.map((product: any) => {
               return (
-                <Col md={6} xs={12} sm={6} className='itemsDisplayCardMarg'>
+                <Col md={6} xs={12} sm={6} className="itemsDisplayCardMarg">
                   <ProductCard
                     description={product.description}
                     image={product.image}
@@ -113,7 +113,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           <Row gutter={15}>
             {mensClothing.map((product: any) => {
               return (
-                <Col md={6} xs={12} sm={6} className='itemsDisplayCardMarg'>
+                <Col md={6} xs={12} sm={6} className="itemsDisplayCardMarg">
                   <ProductCard
                     description={product.description}
                     image={product.image}
@@ -141,7 +141,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           <Row gutter={15}>
             {electronics.map((product: any) => {
               return (
-                <Col md={6} xs={12} sm={6} className='itemsDisplayCardMarg'>
+                <Col md={6} xs={12} sm={6} className="itemsDisplayCardMarg">
                   <ProductCard
                     description={product.description}
                     image={product.image}
@@ -169,7 +169,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           <Row gutter={15}>
             {jewelery.map((product: any) => {
               return (
-                <Col md={6} xs={12} sm={6} className='itemsDisplayCardMarg'>
+                <Col md={6} xs={12} sm={6} className="itemsDisplayCardMarg">
                   <ProductCard
                     description={product.description}
                     image={product.image}
@@ -191,10 +191,16 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
 
   return (
     <React.Fragment>
-      <div className='itemsDisplayContainer'>
+      <div className="itemsDisplayContainer">
         <Row>{renderTabs()}</Row>
       </div>
-     {products.length !== 0 &&  <Footer />}
+      {products.length !== 0 && (
+        <div style={{ width: "100%" }}>
+          <Row>
+            <Footer />
+          </Row>
+        </div>
+      )}
     </React.Fragment>
   );
 };

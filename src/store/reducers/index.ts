@@ -72,7 +72,7 @@ export default function reducer(state = InitialData, action: { type: string, pay
         case productsActions.deleteProductFromCart: 
         return {
             ...state,
-            cart: state.cart.filter(cur => cur !== action.payload)
+            cart: state.cart.filter(cur => cur.id !== action.payload)
         }
 
         //default case
