@@ -13,7 +13,7 @@ function Home() {
   const [cur, setCur] = React.useState<string | EventTarget>(
     "all products"
   );
-  const setTab = (tab: string | EventTarget) =>{
+  const setTab = (tab: string | EventTarget) => {
     setCur(tab);
   };
   //load the products

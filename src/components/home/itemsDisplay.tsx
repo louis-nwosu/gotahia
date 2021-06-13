@@ -5,9 +5,10 @@ import "antd/dist/antd.css";
 //import local components
 import ProductCard from "./productCard";
 import Footer from "./footer";
+import './index.css';
 //import the dispatch hook
 import { useSelector, useDispatch } from "react-redux";
-//import function to ad products to cart
+//import function to add products to cart
 import {
   addProductToCart,
   addProductToWishList,
@@ -17,17 +18,6 @@ import {
 interface Props {
   currentTab: string | EventTarget;
 }
-
-//component styles
-const itemsDisplayStyles: any = {
-  container: {
-    padding: "20px",
-    marginTop: '20px'
-  },
-  cardMarg: {
-    marginBottom: "20px",
-  },
-};
 
 const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
   //define the dispatch hook
@@ -67,7 +57,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           <Row gutter={15}>
             {products.map((product: any) => {
               return (
-                <Col md={6} xs={12} sm={6} style={itemsDisplayStyles.cardMarg}>
+                <Col md={6} xs={12} sm={6} className='itemsDisplayCardMarg'>
                   <ProductCard
                     description={product.description}
                     image={product.image}
@@ -95,7 +85,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           <Row gutter={15}>
             {womenClothes.map((product: any) => {
               return (
-                <Col md={6} xs={12} sm={6} style={itemsDisplayStyles.cardMarg}>
+                <Col md={6} xs={12} sm={6} className='itemsDisplayCardMarg'>
                   <ProductCard
                     description={product.description}
                     image={product.image}
@@ -123,7 +113,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           <Row gutter={15}>
             {mensClothing.map((product: any) => {
               return (
-                <Col md={6} xs={12} sm={6} style={itemsDisplayStyles.cardMarg}>
+                <Col md={6} xs={12} sm={6} className='itemsDisplayCardMarg'>
                   <ProductCard
                     description={product.description}
                     image={product.image}
@@ -151,7 +141,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           <Row gutter={15}>
             {electronics.map((product: any) => {
               return (
-                <Col md={6} xs={12} sm={6} style={itemsDisplayStyles.cardMarg}>
+                <Col md={6} xs={12} sm={6} className='itemsDisplayCardMarg'>
                   <ProductCard
                     description={product.description}
                     image={product.image}
@@ -179,7 +169,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
           <Row gutter={15}>
             {jewelery.map((product: any) => {
               return (
-                <Col md={6} xs={12} sm={6} style={itemsDisplayStyles.cardMarg}>
+                <Col md={6} xs={12} sm={6} className='itemsDisplayCardMarg'>
                   <ProductCard
                     description={product.description}
                     image={product.image}
@@ -201,7 +191,7 @@ const ItemsDisplay: React.FC<Props> = ({ currentTab }) => {
 
   return (
     <React.Fragment>
-      <div style={itemsDisplayStyles.container}>
+      <div className='itemsDisplayContainer'>
         <Row>{renderTabs()}</Row>
       </div>
      {products.length !== 0 &&  <Footer />}
