@@ -1,6 +1,5 @@
 import React from "react";
-import { Card } from "antd";
-import { notification } from "antd";
+import { Card, notification } from "antd";
 
 interface Params {
   img: string;
@@ -34,7 +33,7 @@ const ProductCard: React.FC<ProductProps> = ({
 }) => {
   const OpenNotification = (placement: any) => {
     notification.info({
-      message: ``,
+      message: '',
       description: "Added succesfully!",
       placement,
     });

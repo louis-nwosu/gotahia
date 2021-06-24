@@ -9,7 +9,7 @@ interface ProductProps {
   image: string;
   id: number;
   price: number;
-  fn: (id: number) => void;
+  fnDelete: (id: number) => void;
 }
 
 const { Meta } = Card;
@@ -19,18 +19,18 @@ const CartCard: React.FC<ProductProps> = ({
   image,
   price,
   id,
-  fn,
+  fnDelete,
 }) => {
   const OpenNotification = (placement: any) => {
     notification.info({
-      message: ``,
+      message: '',
       description: "+1",
       placement,
     });
   };
   const OpenNotification2 = (placement: any) => {
     notification.info({
-      message: ``,
+      message: '',
       description: "deleted from cart",
       placement,
     });
@@ -56,7 +56,7 @@ const CartCard: React.FC<ProductProps> = ({
           </p>,
           <p
             onClick={() => {
-              fn(id);
+              fnDelete(id);
               OpenNotification2("bottomRight");
             }}
             style={{ color: "#b30c5d" }}

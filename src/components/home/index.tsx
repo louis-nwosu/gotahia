@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, Fragment } from "react";
 //import local components
 import AppBar from "./navBar";
 import ItemsDisplay from "./itemsDisplay";
@@ -6,13 +6,11 @@ import ItemsDisplay from "./itemsDisplay";
 import ActionObj from "../../store/actions";
 //import react-redux functions
 import { useDispatch } from "react-redux";
- 
+
 function Home() {
   const dispatch = useDispatch();
   //state to toggle what component is showing
-  const [cur, setCur] = React.useState<string | EventTarget>(
-    "all products"
-  );
+  const [cur, setCur] = useState<string | EventTarget>("all products");
   const setTab = (tab: string | EventTarget) => {
     setCur(tab);
   };
@@ -23,10 +21,10 @@ function Home() {
   }, [dispatch]);
 
   return (
-    <React.Fragment>
+    <Fragment>
       <AppBar setTabFunc={setTab} />
       <ItemsDisplay currentTab={cur} />
-    </React.Fragment>
+    </Fragment>
   );
 }
 

@@ -12,7 +12,6 @@ const styles = {
 
 const DisplayCartItems: React.FC<{}> = () => {
   const cartArr = useSelector((state: any) => state.cart);
-  console.log(cartArr);
   const dispatch = useDispatch();
   const deleteProductFromCartFunc = (id: number) => {
     dispatch(deleteProductFromCart(id));
@@ -38,7 +37,7 @@ const DisplayCartItems: React.FC<{}> = () => {
                 image={item.img}
                 price={item.price}
                 category={item.category}
-                fn={deleteProductFromCartFunc}
+                fnDelete={deleteProductFromCartFunc}
               />
             </Col>
           );
